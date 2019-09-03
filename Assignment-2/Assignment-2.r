@@ -24,3 +24,24 @@ summary(data$Size)
 colnames(data)
 str(data)
 library(dummies)
+library(stringr)
+summary(data)
+data$Size<-gsub('M','',data$Size)
+summary(data$Size)
+data$Size
+sub<-subset(data,Size="Varies with device")
+sub$Size
+data$Installs<-as.integer(str_remove_all(data$Installs, "[,+]"))
+data <- data  %>% filter(!is.na(Installs))
+summary(data$Installs)
+data$Installs
+selrows<-data[grep("Varies with ",data$Size),]
+selrows
+data
+data<-data-data[selrows]
+data<-data[!selrows]
+s<-anti_join(data,selrows)
+summary(data)
+data$Size
+summary(s)
+glimpse(s)
