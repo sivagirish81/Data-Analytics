@@ -1,0 +1,38 @@
++Data analysis life cycle
+	-Define Goal
+	-Collect and manage data
+	-Build the model
+	-Evaluate and critique the model
+	-Present Results and document
+	-Display Model
+
++Training,validation and testing datasets
+	
++Data Matrix
+	-2 mode matrix
+	-Dissimilarity Matrix(1 mode matrix)
+
++Proximity measures for nominal attributes
+	
++Proximity measures for binary attributes
+	-Symmetric binary dissimilarity=take all possible cases
+	-Assymetric binary dissimilarity=(leave out 0X0)
+
++Proximity measures for numeric attributes
+	-Euclidean
+	-Manhattan
+	-Minkowski
+	-Supermum(Chebyshev) Distance
+
++Proximity measures for ordinal attributes
+	
++Proximity measures for mixed types
+	-Cosine Similarity
+
++Assignment : Dimensionality Reduction
+
+	-Dataset
+	-Objects attributes
+	-Process of dimensionality Reduction
+	-Outcome
+	

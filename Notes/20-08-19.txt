@@ -1,0 +1,42 @@
++Skewness
+
++Kurtosis
+	-If Kurtosis > 3 dataset has heavier tails than a normal distribution.
+
++Range,Quantiles,Quartiles and percentiles
+
++IQR - Inter Quartile Range
+
++Data preprocessing
+	
+	-Data Quality
+	-Data Cleaning
+	-Data Integrssation
+	-Data Reduction
+	-Data Transformation
+
++Data Cleaning
+	-Imputation
+
++Outliers (Noisy Data)
+	-Binning
+	-Replace outliers with mean value.
+	-Smoothing by boundaries.
+	-Clustering
+		*Compute the radius of each cluster
+		*Find the centroid of the nearest cluster
+		*Associate outlier with a particular cluster.
+
++Data Integration
+	-Entity identificarion problem
+	-Granularity
+	-Covariance=(sigma)/mu
+
++Dimensionality Reduction
+
+	-Discrete Wavelet Transform
+	-Principal Component Analysis
+	-
+
+ 
+
