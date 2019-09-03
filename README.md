@@ -2,3 +2,6 @@
 
 Assignment - 1
 + Visualization of data
+
+Assignment - 2
++ Dimensionality Reduction
