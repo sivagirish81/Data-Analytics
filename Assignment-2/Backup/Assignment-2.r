@@ -45,3 +45,17 @@ summary(data)
 data$Size
 summary(s)
 glimpse(s)
+s$Android.Ver
+s$Android.Ver<-as.numeric_version(str_remove_all(s$Android.Ver, " and up"))
+s$Android.Ver
+glimpse(s)
+str(s)
+#s$Last.Updated <- format(as.Date(s$Last.Updated), "%d/%m/%Y")
+#s$Last.Updated<-as.POSIXct(as.numeric(as.character(s$Last.Updated)),origin="1970-01-01")
+s$Last.Updated
+#glimpse(s)
+#summary(s)
+str(s)
+dum<-dummy.data.frame(s, names = c("Category","Installs","Type","Price","Content.Rating","Genres"))
+str(dum)
+prin_comp <- prcomp(dum, scale. = T)
