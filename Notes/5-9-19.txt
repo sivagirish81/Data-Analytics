@@ -1,0 +1,6 @@
+
++Multivariate Regression
+
++Pillai Scores
+
++Confusion Matrix

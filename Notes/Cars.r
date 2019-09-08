@@ -18,3 +18,23 @@ x1<-c(0,0,1,1,1,1,0)
 x2<-c(1,0,1,1,0,1,1)
 
 dist(rbind(x1,x2),method="binary",diag=TRUE)
+
+cor(mtcars)
+mymodel<-lm(cbind(mtcars$mpg,mtcars$hp)~mtcars$cyl+mtcars$disp + mtcars$wt +mtcars$gear,data=mtcars)
+summary(mymodel)
+coef(mymodel)
+
+Mymodelfit<-manova(mymodel)
+summary(Mymodelfit)
+mymodelfinal<-lm(cbind(mtcars$mpg,mtcars$hp)~mtcars$cyl+ mtcars$wt +mtcars$gear,data=mtcars)
+summary(mymodelfinal)
+coef(mymodelfinal)
+
+Mymodelfitfinal<-manova(mymodelfinal)
+summary(Mymodelfitfinal)
+
+#We use pillai coeficient to remove an independent variable.
+#Anything with significant pillai coefficient retain.
+
+#glimpse(Mymodelfitfinal)
+
