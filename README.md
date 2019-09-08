@@ -7,4 +7,4 @@ Assignment - 2
 + Dimensionality Reduction
 
 Assignment - 3
-+Multivariate Regression
++ Multivariate Regression
