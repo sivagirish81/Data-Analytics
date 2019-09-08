@@ -1,25 +1,24 @@
 
-+Correlation
-	-Correlaton coefficient will always be in the range -1 to 1
-	-Closer r is to +1 or -1 more related the variables are.
-	-inverse correlation -ve r
++ Correlation
+	- Correlaton coefficient will always be in the range -1 to 1
+	- Closer r is to +1 or -1 more related the variables are.
+	- inverse correlation -ve r
 
-+Covariance
-	-Change in one variable with respect to the other variable
-	-Unscaled
-	-correlation=covariance/Standard deviation'
++ Covariance
+	- Change in one variable with respect to the other variable
+	- Unscaled
+	- correlation=covariance/Standard deviation'
 
-+Linear Regression
-	-Residual : Difference between estimated and actual value.
-	-Best-Fit : Residual sum of squares should be 0.
++ Linear Regression
+	- Residual : Difference between estimated and actual value.
+	- Best-Fit : Residual sum of squares should be 0.
 
-+Model Output
-	-R : Correlation Coefficient
-	-R square - residual sum of squares
-	-Adjusted R square
-	-Dispersion around mean : Total sum of squares(TSS)
-	-Residual Sum of Squares(RSS)
-	-Reason for adjustment
-	-While using multiple independent variables we have to adjust fir biases of the respective independent variables as well.
++ Model Output
+	- R : Correlation Coefficient
+	- R square - residual sum of squares
+	- Adjusted R square
+	- Dispersion around mean : Total sum of squares(TSS)
+	- Residual Sum of Squares(RSS)
+	- Reason for adjustment
+	- While using multiple independent variables we have to adjust fir biases of the respective independent variables as well.
 
-+
