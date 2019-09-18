@@ -37,4 +37,8 @@ summary(Mymodelfitfinal)
 #Anything with significant pillai coefficient retain.
 
 #glimpse(Mymodelfitfinal)
+head(cars)
+
+#How to identify the dependent variables
+
 
