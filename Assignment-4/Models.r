@@ -1,6 +1,6 @@
 library("rmdformats") 
 
-
+library("ResourceSelection")
 library("corrgram")
 
 library("MASS")
@@ -9,6 +9,7 @@ library("naniar")
 library("e1071")
 library("lattice")
 library("caret")
+library("caTools")
 wine<-read.csv("winedata/winequality_white.csv")
 head(wine)
 
@@ -98,6 +99,7 @@ str(Lwine)
 
 LogisticModel <- glm(Lwine$Category ~ ., data = Lwine, family=binomial(link = "logit"))
 summary(LogisticModel)
+hoslem.test(LogisticModel$Category,fitted(LogisticModel),g=10)
 #rsq <- function (x, y) cor(x, y) ^ 2
 LogisticModelStepwise <- step(LogisticModel)
 Rsq(LogisticModelStepwise,adj=TRUE,data=Lwine)
@@ -112,3 +114,38 @@ p_val
 
 #P value by mcfadden pseudo R2 we get 0 and r sq is 1 
 #Hence binomial logistic regression is the best model
+
+PolyMod<-lm(wine$trans.quality~poly(wine$trans.volatile.acidity,4)+poly(wine$trans.citric.acid,4)+poly(wine$trans.residual.sugar,4)+poly(wine$trans.chlorides,4)+poly(wine$trans.free.sulfur.dioxide,4)+poly(wine$trans.total.sulfur.dioxide,4)+poly(wine$trans.pH,4)+poly(wine$trans.sulphates,4),data=wine)
+summary(PolyMod)
+
+#PolyMod1<-lm(wine$trans.quality~wine$trans.volatile.acidity+wine$trans.citric.acid+wine$trans.residual.sugar+wine$trans.chlorides+wine$trans.free.sulfur.dioxide+wine$trans.total.sulfur.dioxide+wine$trans.pH+wine$trans.sulphates,data=wine)
+#summary(PolyMod1)
+
+PolyMod2<-lm(wine$trans.quality~poly(wine$trans.volatile.acidity,4)+poly(wine$trans.citric.acid,4)+poly(wine$trans.residual.sugar,4)+poly(wine$trans.chlorides,4)+poly(wine$trans.total.sulfur.dioxide,4)+poly(wine$trans.sulphates,4),data=wine)
+summary(PolyMod2)
+
+LogisticModel <- glm(Lwine$Category ~ ., data = Lwine, family=binomial)
+summary(LogisticModel)
+hoslem.test(LogisticModel$Category,fitted(LogisticModel),g=10)
+
+cwine<-wine
+
+head(cwine)
+cwine <- cwine[!duplicated(wine), ]
+cwine$Category<-NA
+cwine$Category[cwine$quality <= 5] <- 0
+cwine$Category[cwine$quality > 5] <- 1
+
+head(cwine)
+spl = sample.split(cwine$Category, SplitRatio = 0.7)
+
+trainer = subset(cwine, spl==TRUE)
+tester = subset(cwine, spl==FALSE)
+
+
+
+head(trainer)
+LogisticModel <- glm(Category ~ ., data = trainer, family=binomial(link = "logit"))
+summary(LogisticModel)
+head(fitted(LogisticModel))
+head(trainer)
