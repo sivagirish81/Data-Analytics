@@ -1,0 +1,38 @@
+Senseries<-ts(Sensex)
+#Series<-ts(Senseries)
+plot.ts(Senseries)
+#plot.ts(Series)
+LSenSeries<-log(Senseries)
+HWF<-HoltWinters(Senseries,beta=FALSE,gamma=FALSE)
+HWF
+HWF$fitted
+HWF$SSE
+plot(HWF)
+library(forecast)
+NHWF<-HoltWinters(Senseries,beta=FALSE,gamma=FALSE,l.start = 1)
+NF<-forecast(NHWF,h=8,na.action=na.pass)
+
+plot(HWF)
+
+LHWF<-HoltWinters(LSenSeries,beta=FALSE,gamma=FALSE)
+LHWF
+LHWF$fitted
+LHWF$SSE
+
+#LHWF$SSE=2450.497 sum of squared error
+plot(LHWF)
+
+#Sum of Squared Error is 43119747
+
+library(forecast)
+HWF2<-forecast:::forecast.HoltWinters(LHWF,h=8)
+HWF2
+
+fcast<-predict(LHWF,n.ahead=7,prediction.interval = TRUE,level = 0.95)
+fcast
+plot(LHWF,fcast)
+library(tseries)
+class(fcast)
+kpss.test(LSenSeries)
+
+fit<-hw(LSenSeries,seasonal = "additive")
