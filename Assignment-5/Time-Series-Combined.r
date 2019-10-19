@@ -31,3 +31,23 @@ plot.ts(tsNmer)
 
 mplts<-decompose(tsNmer)
 plot(mplts)
+
+#Converting Time Series data to a dataframe
+my_df_ts <- data.frame(Close = tsNmer, as.numeric(time(tsNmer)))
+names(my_df_ts) <- c("Closedf", "timedf")
+
+#Time Series Linear Model
+#str(my_df_ts)
+#TsLinRegModel<-tslm(my_df_ts$Closedf~season + trend + Nmer$USD..PM. +Nmer$GBP..PM. + Nmer$EURO..PM.)
+?tslm
+??tslm
+library(forecast)
+
+linmod1<-lm(Nmer$Close~Nmer$USD..PM.)
+summary(linmod1)
+
+linmod1<-lm(Nmer$Close~Nmer$EURO..PM.)
+summary(linmod1)
+
+linmod3<-lm(Nmer$Close~Nmer$GBP..PM.+Nmer$USD..PM.)
+summary(linmod3)
