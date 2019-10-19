@@ -16,3 +16,8 @@ Assignment - 5
 + Time Series Analysis
 + Holt Winter Model
 + Linear Model
+
+Assignment - 6
++ Auto Regression
++ Moving Average Models
++ Stationary and Non Stationary Models
