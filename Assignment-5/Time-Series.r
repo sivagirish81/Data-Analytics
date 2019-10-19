@@ -6,10 +6,16 @@ Sensex <- read.csv("BSESN.csv")
 Sensex<-Sensex[,colnames(Sensex)!="Adj.Close"]
 #str(Sensex)
 
-Sensex<-na.omit(Sensex)
+sensex<-na.omit(Sensex,cols=)
 #head(Sensex)
+#if any(is.na(sensex[,"Open"]))) {next}
 
+table(is.na(sensex))
+str(Sensex)
 
+nsensex<-data.matrix(sensex)
+linreg<-lm(nsensex$Close ~ nsensex$Open + nsensex$High + nsensex$Low +nsensex$Volume,data=nsensex)
+summary(linreg)
 
 Close_Values<-ts(Sensex$Close,frequency=365,start=c(2014,10,16),end = c(2019,10,15))
 plot.ts(Close_Values)
