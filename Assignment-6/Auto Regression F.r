@@ -16,6 +16,8 @@ BSensex<-BSensex[,colnames(Sensex)!="Adj.Close"]
 BSensex<-na.omit(BSensex)
 str(BSensex)
 
+summary(BSensex$Close)
+
 Bst<-ts(BSensex$Close,frequency=365,start=c(2014,10,16),end = c(2019,10,15))
 plot.ts(Bst)
 
@@ -67,7 +69,12 @@ auto.arima(Bst)
 auto.arima(Bstdiff)
 #Auto Arima gives us the most optimal arima model
 
-armamod<-ARMAacf(Bst)
+armamod<-arma(Bstdiff,order = c(1,1))
 plot.ts(armamod)
 farmamod<-forecast(armamod)
 accuracy(farmamod)
+
+arimamod<-arima(Bst,order = c(4,1,2))
+farimamod<-forecast(arimamod)
+plot.ts(farimamod)
+accuracy(farimamod)
