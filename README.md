@@ -23,8 +23,8 @@ Assignment - 6
 + Stationary and Non Stationary Models
 
 Assignment - 7
-+Building a Recommendation System.
++ Building a Recommendation System.
 
 Assignment - 8
-+Text Processing
-+Using Social Networking data.
++ Text Processing
++ Using Social Networking data.
