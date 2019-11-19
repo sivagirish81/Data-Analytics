@@ -55,3 +55,9 @@ table_views <- data.frame(movie = names(views_per_movie),views = views_per_movie
 table_views <- table_views[order(table_views$views, decreasing =TRUE), ]
 
 ggplot(table_views[1:6, ], aes(x = movie, y = views)) +geom_bar(stat="identity") + theme(axis.text.x =element_text(angle = 45, hjust = 1)) + ggtitle("Number of views of the top movies")
+
+average_ratings <- colMeans(MovieLense)
+qplot(average_ratings) + stat_bin(binwidth = 0.1) +ggtitle("Distribution of the average movie rating")
+
+average_ratings_relevant <- average_ratings[views_per_movie > 100]
+qplot(average_ratings_relevant) + stat_bin(binwidth = 0.1) +ggtitle(paste("Distribution of the relevant average ratings"))
