@@ -26,18 +26,19 @@ recommender_models <- recommenderRegistry$get_entries(dataType ="realRatingMatri
 names(recommender_models)
 
 vector_ratings <- as.vector(MovieLense@data)
+ratings <- as.vector(MovieLense@data)
 unique(vector_ratings)
 
 #No. of movies that are rated 0,1,2,3,4 or 5
-table_ratings <- table(vector_ratings)
+table_ratings <- table(ratings)
 table_ratings
 
 #Remove all 0 ratings
 vector_ratings <- vector_ratings[vector_ratings != 0]
-vector_ratings <- factor(vector_ratings)
+ratings <- factor(vector_ratings)
 
 #Most of the ratings are above 2, and the most common is 4.
-qplot(vector_ratings) + ggtitle("Distribution of the ratings")
+qplot(ratings) + ggtitle("Ratings Distribution")
 
 views_per_movie <- colCounts(MovieLense)
 views_per_movie
@@ -114,7 +115,7 @@ dim(recc_matrix)
 recc_matrix[, 1:4]
 
 number_of_items <- factor(table(recc_matrix))
-chart_title <- "Distribution of the number of items for UBCF"
+chart_title <- "UBCF item distribution"
 qplot(number_of_items) + ggtitle(chart_title)
 
 number_of_items_sorted <- sort(number_of_items, decreasing = TRUE)
